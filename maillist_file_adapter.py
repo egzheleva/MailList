@@ -47,6 +47,9 @@ class MailListFileAdapter():
 
         result = MailList(maillist_id, maillist_name)
 
+        if lines == [""]:
+            return result
+
         for unparsed_subscriber in lines:
             subscriber = unparsed_subscriber.split(" - ")
             result.add_subscriber(subscriber[0], subscriber[1])
